@@ -44,7 +44,7 @@ export default function ProfileSettings() {
           description: "Electricista certificado con más de 10 años de experiencia en instalaciones residenciales y comerciales.",
           pricePerHour: "500",
           categories: "Electricidad, Instalaciones, Reparaciones",
-          photo: "https://i.pravatar.cc/150?img=14",
+          photo: "https://i.ibb.co/20mtQk5B/technician-avatar.png",
         });
       } finally {
         setLoading(false);
