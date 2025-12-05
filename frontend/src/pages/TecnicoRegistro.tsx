@@ -101,6 +101,7 @@ const TecnicoRegistro = () => {
       })
         .then((r) => r.text())
         .then(console.log);
+        
     } catch (e: any) {
       console.error("Register error:", e);
       alert("Error registering user");
