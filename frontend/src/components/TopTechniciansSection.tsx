@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Technician } from "../types";
 import { techniciansMock } from "../mocks/techniciansMock"; 
 import { fetchTechniciansFromApi } from "../api/techniciansApi"; 
+import "../styles/home.css";
 
 const formatCurrency = (amount: number): string => {
   return new Intl.NumberFormat("es-DO", {

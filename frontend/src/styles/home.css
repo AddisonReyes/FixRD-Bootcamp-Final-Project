@@ -12,14 +12,14 @@
 }
 
 /* Contenedor General */
- .contenedorservices {
+/*  .contenedorservices {
+ 
   min-height: 100vh;
-} 
+}  */
 
 /* Contenedor Principal del Home */
-.home-main {
-  
- width: 100%;
+.contenedorservices {
+min-height: 100vh;
   margin: 0;
   padding: 5rem 1.5rem 4rem;
   background: linear-gradient(160deg, var(--bg-main) 20px, #001f30 100%, #003049 100%);
@@ -27,7 +27,10 @@
 
 /* Secciones */
 .home-section {
-  margin-bottom: 4rem;
+ min-height: 100vh;
+  margin: 0;
+  padding: 5rem 1.5rem 4rem;
+  background: linear-gradient(160deg, var(--bg-main) 20px, #001f30 100%, #003049 100%);
 }
 
 .section-header {
