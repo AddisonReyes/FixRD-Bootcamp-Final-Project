@@ -16,6 +16,7 @@ dotenv.config();
 
 const env: string = process.env.NODE_ENV || "dev";
 let port: string = process.env.PORT || "3000";
+
 const app = express();
 
 const connectionString: string | undefined =
@@ -28,15 +29,15 @@ if (connectionString) {
 } else {
   console.log(" - The server does not have a connection link to the database.");
 }
-
+console.log("adios");
 // Config
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 app.use(
   cors({
-    origin: env === "dev" ? `http://localhost:${port}` : process.env.URL,
+    origin: env === "dev" ? `http://localhost:3001` : process.env.URL,
   })
 );
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Setup routes and middlewares
 app.use("/api", technicianRoutes);
@@ -51,7 +52,6 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use(errors);
-
 // Listen port
 app.listen(port, () => {
   if (env === "dev") {
