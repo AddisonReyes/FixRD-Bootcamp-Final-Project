@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { IRequest } from "@bootcamp/core";
 declare const RequestModel: mongoose.Model<IRequest, {}, {}, {}, mongoose.Document<unknown, {}, IRequest, {}, {}> & IRequest & Required<{
-    _id: unknown;
+    _id: mongoose.Types.ObjectId;
 }> & {
     __v: number;
 }, any>;
