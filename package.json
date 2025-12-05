@@ -1,4 +1,12 @@
 {
+  "name": "fixrd-bootcamp-final-project",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "core",
+    "backend",
+    "frontend"
+  ],
   "dependencies": {
     "@bootcamp/core": "^1.0.1"
   }

@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import ServicesSection from "./components/ServicesSection";
-import TopTechniciansSection from "./components/TopTechniciansSection";
+//import TopTechniciansSection from "./components/TopTechniciansSection";
 import ComoFunciona from "./components/ComoFunciona";
 import UneteTecnico from "./components/UneteTecnico";
 import Footer from "./components/Footer";
@@ -10,10 +10,12 @@ import FAQ from "./components/FAQ";
 import TecnicoTarjeta from "./pages/catalogo";
 import PerfilCliente from "./pages/PerfilCliente";
 
-import TechnicianDashboard from "./pages/TechnicianDashboard";
+import TechnicianDashboard from "./pages/TechnicianDashboard/TechnicianDashboard";
 import LoginRegistro from "./pages/LoginRegistro";
 import TecnicoRegistro from "./pages/TecnicoRegistro";
 import AcercaDe from "./components/AcercaDe";
+import ProfileSettings from "./pages/ProfileSettings/ProfileSettings";
+//import TechnicianDashboard from "./pages/TechnicianDashboard";
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
         
         {/* Dashboard del técnico */}
         <Route path="/tecnico" element={<TechnicianDashboard />} />
+        <Route path="/tecnico/perfil" element={<ProfileSettings />} />
         <Route path="/cliente" element={<PerfilCliente />} />
       </Routes>
       

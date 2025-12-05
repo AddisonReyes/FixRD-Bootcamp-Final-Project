@@ -1,9 +1,15 @@
 // ------------------------ricky---------------------------
 import React, { useEffect, useState } from "react"; 
+<<<<<<< HEAD:frontend/src/components/TopTechniciansSection.tsx
 import { Technician } from "../types";
 import { techniciansMock } from "../mocks/techniciansMock"; 
 import { fetchTechniciansFromApi } from "../api/techniciansApi"; 
 import "../styles/home.css";
+=======
+import { Technician } from "./types";
+import { techniciansMock } from "./mocks/techniciansMock"; 
+import { fetchTechniciansFromApi } from "./api/techniciansApi"; 
+>>>>>>> e2b3b4763151a879f2569c638565dbd1fa7ae1c9:frontend/src/TopTechniciansSection.tsx
 
 const formatCurrency = (amount: number): string => {
   return new Intl.NumberFormat("es-DO", {
