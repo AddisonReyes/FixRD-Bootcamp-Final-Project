@@ -7,9 +7,8 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import SearchForm from "../components/SearchForm";
 import ServicesSection from "../components/ServicesSection";
-import TopTechniciansSection from "../components/TopTechniciansSection";
 import UneteTecnico from "../components/UneteTecnico";
-import TechnicianDashboard from "./TechnicianDashboard";
+import TechnicianDashboard from "./TechnicianDashboard/TechnicianDashboard";
 
 const Home = () => {
   return (
@@ -19,16 +18,13 @@ const Home = () => {
       <SearchForm />
       <main className="home-main">
         <ServicesSection />
-        <TopTechniciansSection />
-
       </main>
-
       <ComoFunciona />
       <AcercaDe />
-     
+
       <FAQ />
       <UneteTecnico />
-     
+
     </>
   );
 };

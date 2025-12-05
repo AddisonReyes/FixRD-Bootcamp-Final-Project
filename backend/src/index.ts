@@ -34,7 +34,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
   cors({
-    origin: env === "dev" ? `http://localhost:${port}` : process.env.URL,
+    origin: env === "dev" ? ["http://localhost:3000", "http://localhost:3001"] : process.env.URL,
+    credentials: true
   })
 );
 

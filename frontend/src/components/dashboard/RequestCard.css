@@ -1,0 +1,278 @@
+.request-card {
+  background: white;
+  margin: 16px 0;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.request-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.client-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e5e7eb;
+}
+
+.client-details {
+  flex: 1;
+}
+
+.client-details h3 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  color: #111827;
+}
+
+.location {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.tag {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tag.urgent {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.tag.standard {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.description {
+  color: #374151;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+  font-size: 15px;
+}
+
+.request-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.time {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.price {
+  color: #059669;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.request-footer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-accept,
+.btn-reject,
+.btn-complete {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.btn-accept {
+  background: #2563eb;
+  color: white;
+  flex: 1;
+}
+
+.btn-accept:hover {
+  background: #1d4ed8;
+  transform: scale(1.02);
+}
+
+.btn-reject {
+  background: #dc2626;
+  color: white;
+  flex: 1;
+}
+
+.btn-reject:hover {
+  background: #b91c1c;
+  transform: scale(1.02);
+}
+
+.btn-complete {
+  background: #16a34a;
+  color: white;
+  flex: 1;
+}
+
+.btn-complete:hover {
+  background: #15803d;
+  transform: scale(1.02);
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+  text-align: center;
+}
+
+.status-badge.completed {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* Modal de confirmación */
+.confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content h3 {
+  margin: 0 0 12px 0;
+  color: #111827;
+  font-size: 20px;
+}
+
+.modal-content p {
+  margin: 0 0 24px 0;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-cancel,
+.btn-confirm-accept,
+.btn-confirm-reject {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-cancel:hover {
+  background: #e5e7eb;
+}
+
+.btn-confirm-accept {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-confirm-accept:hover {
+  background: #1d4ed8;
+}
+
+.btn-confirm-reject {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-confirm-reject:hover {
+  background: #b91c1c;
+}
+
+@media (max-width: 768px) {
+  .request-card {
+    padding: 16px;
+  }
+
+  .client-info {
+    flex-wrap: wrap;
+  }
+
+  .client-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .request-footer {
+    flex-direction: column;
+  }
+
+  .btn-accept,
+  .btn-reject,
+  .btn-complete {
+    width: 100%;
+  }
+}
