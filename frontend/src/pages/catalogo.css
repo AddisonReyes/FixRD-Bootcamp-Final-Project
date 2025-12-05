@@ -37,9 +37,9 @@
 
 .sidebar-filter {
   margin-left: 5px;
-  width: 220px;
+  width: 300px; /* ANTES 220px — AHORA MÁS ANCHO */
   background: #1b9aaa;
-  padding: 15px;
+  padding: 20px; /* un poco más de espacio interno */
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   color: #000000;
@@ -116,11 +116,13 @@
   width: 100%;
 }
 
+/* ---------------- TARJETAS MÁS PEQUEÑAS ---------------- */
+
 .profile-card {
   background: #ffffff;
-  width: 350px;
+  width: 150px;
   border-radius: 16px;
-  padding: 15px;
+  padding: 12px;
   text-align: center;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -134,29 +136,29 @@
 }
 
 .profile-image img {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   border: 2px solid #2563eb;
   object-fit: cover;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .profile-name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .profile-info {
   color: #555;
-  font-size: 0.9rem;
-  margin: 4px 0;
+  font-size: 0.8rem;
+  margin: 3px 0;
 }
 
 .profile-btn {
-  margin-top: 10px;
-  padding: 8px 12px;
+  margin-top: 8px;
+  padding: 6px 10px;
   width: 100%;
   background: #2563eb;
   color: white;
@@ -170,6 +172,8 @@
 .profile-btn:hover {
   background: #1e40af;
 }
+
+/* ------------------- RESPONSIVE ------------------- */
 
 @media (max-width: 900px) {
   .main-container {
