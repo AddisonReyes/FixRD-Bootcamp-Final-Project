@@ -1,15 +1,8 @@
-// ------------------------ricky---------------------------
-import React, { useEffect, useState } from "react"; 
-<<<<<<< HEAD:frontend/src/components/TopTechniciansSection.tsx
+import React, { useEffect, useState } from "react";
 import { Technician } from "../types";
-import { techniciansMock } from "../mocks/techniciansMock"; 
-import { fetchTechniciansFromApi } from "../api/techniciansApi"; 
+import { techniciansMock } from "../mocks/techniciansMock";
+import { fetchTechniciansFromApi } from "../api/techniciansApi";
 import "../styles/home.css";
-=======
-import { Technician } from "./types";
-import { techniciansMock } from "./mocks/techniciansMock"; 
-import { fetchTechniciansFromApi } from "./api/techniciansApi"; 
->>>>>>> e2b3b4763151a879f2569c638565dbd1fa7ae1c9:frontend/src/TopTechniciansSection.tsx
 
 const formatCurrency = (amount: number): string => {
   return new Intl.NumberFormat("es-DO", {
@@ -18,33 +11,33 @@ const formatCurrency = (amount: number): string => {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(amount);
-}
+};
 
 const TopTechniciansSection: React.FC = () => {
-  const [technicians, setTechnicians] = useState<Technician[]>([]); 
-  const [loading, setLoading] = useState(true); 
-  const [usingMock, setUsingMock] = useState(false); 
+  const [technicians, setTechnicians] = useState<Technician[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [usingMock, setUsingMock] = useState(false);
 
   useEffect(() => {
     const loadTechnicians = async () => {
       try {
-        const data = await fetchTechniciansFromApi(); 
+        const data = await fetchTechniciansFromApi();
+
         const sorted = [...data]
-          .sort(
-            (a, b) => (b.rating || 0) - (a.rating || 0) 
-          )
-          .slice(0, 3); // top 3 técnicos
-        setTechnicians(sorted); 
+          .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+          .slice(0, 3);
+
+        setTechnicians(sorted);
       } catch (error) {
-        console.error("Usando técnicos estáticos por error en API", error); 
-        setTechnicians(techniciansMock); 
-        setUsingMock(true); 
+        console.error("Usando técnicos estáticos por error en API", error);
+        setTechnicians(techniciansMock);
+        setUsingMock(true);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
-    loadTechnicians(); 
+    loadTechnicians();
   }, []);
 
   return (
@@ -54,10 +47,12 @@ const TopTechniciansSection: React.FC = () => {
           <span className="section-title-main">Top</span>{" "}
           <span className="section-title-highlight">Técnicos</span>
         </h2>
+
         <p className="section-subtitle">
           Conoce a nuestros técnicos mejor valorados. Todos están verificados,
           certificados y listos para ayudarte.
         </p>
+
         {usingMock && (
           <p className="section-note">
             * Mostrando datos de ejemplo mientras se conecta la base de datos.
@@ -71,11 +66,13 @@ const TopTechniciansSection: React.FC = () => {
         <div className="cards-grid">
           {technicians.map((tech) => (
             <article key={tech._id || tech.name} className="technician-card">
-              
               <div className="technician-content">
                 <div className="technician-header">
                   <img
-                    src={tech.photo || "https://via.placeholder.com/80x80.png?text=FX"}
+                    src={
+                      tech.photo ||
+                      "https://via.placeholder.com/80x80.png?text=FX"
+                    }
                     alt={tech.name}
                     className="technician-photo"
                   />
@@ -114,7 +111,6 @@ const TopTechniciansSection: React.FC = () => {
                 </div>
                 <button className="btn-primary">Solicitar servicio</button>
               </div>
-
             </article>
           ))}
         </div>
@@ -123,4 +119,4 @@ const TopTechniciansSection: React.FC = () => {
   );
 };
 
-export default TopTechniciansSection; 
+export default TopTechniciansSection;

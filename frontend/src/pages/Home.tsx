@@ -1,4 +1,3 @@
-
 import AcercaDe from "../components/AcercaDe";
 import ComoFunciona from "../components/ComoFunciona";
 import FAQ from "../components/FAQ";
@@ -8,6 +7,7 @@ import Hero from "../components/Hero";
 import SearchForm from "../components/SearchForm";
 import ServicesSection from "../components/ServicesSection";
 import UneteTecnico from "../components/UneteTecnico";
+import TopTechniciansSection from "../components/TopTechniciansSection";
 import TechnicianDashboard from "./TechnicianDashboard/TechnicianDashboard";
 
 const Home = () => {
@@ -18,13 +18,13 @@ const Home = () => {
       <SearchForm />
       <main className="home-main">
         <ServicesSection />
+        <TopTechniciansSection />
       </main>
       <ComoFunciona />
       <AcercaDe />
 
       <FAQ />
       <UneteTecnico />
-
     </>
   );
 };
