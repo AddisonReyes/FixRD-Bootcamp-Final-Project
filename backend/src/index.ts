@@ -29,7 +29,7 @@ if (connectionString) {
 } else {
   console.log(" - The server does not have a connection link to the database.");
 }
-console.log("adios");
+
 // Config
 app.use(
   cors({
@@ -52,6 +52,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use(errors);
+
 // Listen port
 app.listen(port, () => {
   if (env === "dev") {

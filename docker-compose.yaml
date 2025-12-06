@@ -11,5 +11,21 @@ services:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: 123456
 
+  fixrd-backend:
+    build: .
+    container_name: fixrd-backend
+    depends_on:
+      - fixrd-mongodb
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      MONGO_URL_PROD: mongodb://admin:123456@localhost:27017/fix-rd?authSource=admin&retryWrites=true&w=majority
+      BACKEND_PORT: 3000
+      NODE_ENV: prod
+    command: npm run start
+
 volumes:
   mongo-data:

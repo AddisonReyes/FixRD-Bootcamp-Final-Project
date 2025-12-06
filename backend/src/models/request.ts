@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { IRequest } from "@bootcamp/core";
 
 const statusEnum = ["pending", "accepted", "completed", "cancelled"];

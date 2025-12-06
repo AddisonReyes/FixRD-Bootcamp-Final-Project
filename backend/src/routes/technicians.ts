@@ -1,8 +1,9 @@
 import express, { Request, Response } from "express";
 import { Types } from "mongoose";
 
-import Technician from "../models/technician.js";
 import verifyToken from "../middlewares/auth.js";
+import Technician from "../models/technician.js";
+import User from "../models/user.js";
 
 const env: string = process.env.NODE_ENV || "dev";
 const url: string = "/technicians";
@@ -50,7 +51,19 @@ router.get(url + "/:id", verifyToken, async (req: Request, res: Response) => {
     }
 
     const technician = await Technician.findById(id);
-    res.status(200).send(technician);
+    const user = await User.findById(technician!.userId);
+    if (!technician || !user) {
+      return res.status(404).json({ message: "Technician not found." });
+    }
+
+    const technicianInfo = {
+      name: user.name,
+      email: user.email,
+      ...technician.toObject(),
+      createdAt: user.createAt,
+    };
+
+    res.status(200).send(technicianInfo);
   } catch (error) {
     const errorMessage = (error as unknown as Error).message;
     res.status(400).json({
