@@ -5,6 +5,7 @@ import cors from "cors";
 
 import { ApiResponse } from "@bootcamp/core";
 import errors from "./middlewares/errors.js";
+import { setupSwagger } from "./config/swagger.js";
 
 import technicianRoutes from "./routes/technicians.js";
 import requestRoutes from "./routes/requests.js";
@@ -38,6 +39,9 @@ app.use(
 );
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// Setup Swagger
+setupSwagger(app);
 
 // Setup routes and middlewares
 app.use("/api", technicianRoutes);

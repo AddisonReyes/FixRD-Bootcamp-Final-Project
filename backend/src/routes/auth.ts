@@ -20,7 +20,48 @@ const schemaLogin = joi.object({
 
 const authRouter = express.Router();
 
-// POST /api/auth/register - User registration
+/**
+ * @swagger
+ * /api/auth/register:
+ *   post:
+ *     summary: Registrar un nuevo usuario
+ *     tags: [Autenticación]
+ *     security: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 minLength: 6
+ *                 maxLength: 255
+ *                 example: Juan Pérez
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: juan@example.com
+ *               password:
+ *                 type: string
+ *                 minLength: 6
+ *                 maxLength: 255
+ *                 example: password123
+ *     responses:
+ *       204:
+ *         description: Usuario registrado exitosamente
+ *       400:
+ *         description: Error de validación o correo ya registrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
 authRouter.post(url + "/register", async (req: Request, res: Response) => {
   const { error } = schemaRegister.validate(req.body);
   if (error) {
@@ -43,7 +84,53 @@ authRouter.post(url + "/register", async (req: Request, res: Response) => {
   }
 });
 
-// POST /api/auth/login - Login
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Iniciar sesión
+ *     tags: [Autenticación]
+ *     security: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: juan@example.com
+ *               password:
+ *                 type: string
+ *                 example: password123
+ *     responses:
+ *       200:
+ *         description: Login exitoso
+ *         headers:
+ *           auth-token:
+ *             description: Token JWT para autenticación
+ *             schema:
+ *               type: string
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *       400:
+ *         description: Credenciales incorrectas o usuario no encontrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
 authRouter.post(url + "/login", async (req: Request, res: Response) => {
   const { error } = schemaLogin.validate(req.body);
   if (error) {
